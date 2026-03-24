@@ -1,5 +1,12 @@
 # Claude Instructions — The Wall That Heals
 
+## FIRST THING EVERY SESSION
+Read this file before doing anything else:
+- `.claude-memory/PROJECT_STATE.md` — current project state, content checklist, decisions
+
+## LAST THING EVERY SESSION
+Update PROJECT_STATE.md with anything that changed.
+
 ## Project Overview
 Landing page for the Vietnam Veterans Traveling Wall visit to Putnam, CT.
 - **Live URL:** thewallthathealsputnam2026.org
