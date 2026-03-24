@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall That Heals — Putnam, CT | September 10–13, 2026</title>
+    <meta name="description" content="The Wall That Heals Vietnam Veterans Memorial Replica visits Putnam, Connecticut — Murphy Park, September 10–13, 2026. Free and open 24 hours a day.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --gold:      #c9a84c;
+            --gold-lt:   #e8c96d;
+            --gold-dk:   #a07830;
+            --bg:        #0d0d0d;
+            --bg2:       #141414;
+            --bg3:       #1a1a1a;
+            --white:     #f5f0e8;
+            --muted:     #888;
+            --navy:      #1b2d4f;
+            --orange:    #d4845a;
+            --green:     #3d6b4f;
+            --tan:       #b8a96a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 40px; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(201,168,76,0.25);
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .nav-brand .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .nav-brand .brand-sub {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            transition: color 0.2s, opacity 0.2s;
+        }
+        .nav-links a:hover { color: var(--gold); opacity: 1; }
+
+        .nav-donate {
+            background: var(--gold);
+            color: #000 !important;
+            padding: 7px 18px;
+            border-radius: 4px;
+            font-weight: 700 !important;
+            opacity: 1 !important;
+        }
+        .nav-donate:hover { background: var(--gold-lt) !important; }
+
+        /* ── HERO ── */
+        #hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('PICS/wall.png');
+            background-size: cover;
+            background-position: center 30%;
+            filter: brightness(0.45) grayscale(20%);
+            transform: scale(1.03);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(0,0,0,0.2) 0%,
+                rgba(0,0,0,0.1) 40%,
+                rgba(0,0,0,0.7) 80%,
+                rgba(0,0,0,0.92) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            max-width: 860px;
+        }
+
+        .hero-eyebrow {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--white);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+        }
+
+        .hero-title span { color: var(--gold); }
+
+        .hero-location {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            color: var(--white);
+            opacity: 0.9;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .hero-dates {
+            font-family: 'Raleway', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            font-weight: 500;
+            color: var(--gold-lt);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+        .cd-unit {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 8px;
+            padding: 14px 20px;
+            min-width: 80px;
+            text-align: center;
+        }
+        .cd-num {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .cd-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero-badge {
+            background: rgba(201,168,76,0.12);
+            border: 1px solid rgba(201,168,76,0.4);
+            border-radius: 30px;
+            padding: 7px 18px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-lt);
+        }
+
+        /* ── CTA CIRCLES ── */
+        #cta-row {
+            background: var(--bg2);
+            padding: 56px 20px;
+            border-bottom: 1px solid #222;
+        }
+
+        .cta-circles {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-circle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cta-circle .circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            transition: transform 0.2s, filter 0.2s;
+        }
+        .cta-circle:hover .circle { transform: translateY(-5px); filter: brightness(1.15); }
+
+        .cta-circle .circle-donate  { background: var(--navy); }
+        .cta-circle .circle-events  { background: var(--orange); }
+        .cta-circle .circle-tours   { background: var(--green); }
+        .cta-circle .circle-volunteer { background: var(--tan); }
+
+        .cta-circle .circle-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        /* ── SECTIONS ── */
+        section { padding: 80px 20px; }
+        .section-inner { max-width: 1000px; margin: 0 auto; }
+
+        .section-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .gold-rule {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin-bottom: 28px;
+            border-radius: 2px;
+        }
+
+        .body-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ccc;
+            max-width: 680px;
+        }
+
+        /* ── ABOUT ── */
+        #about { background: var(--bg); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        .about-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        .about-video iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ── EVENT INFO ── */
+        #event-info { background: var(--bg2); }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 36px;
+        }
+
+        .info-card {
+            background: var(--bg3);
+            border: 1px solid #2a2a2a;
+            border-top: 3px solid var(--gold);
+            border-radius: 10px;
+            padding: 24px 20px;
+        }
+        .info-card .ic-icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .info-card .ic-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+        .info-card .ic-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.4;
+        }
+        .info-card .ic-sub {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        /* ── GET INVOLVED ── */
+        #get-involved { background: var(--bg); }
+
+        .involve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .involve-card {
+            background: var(--bg3);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--white);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .involve-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+        }
+        .involve-card .ic2-icon { font-size: 2.4rem; margin-bottom: 16px; }
+        .involve-card .ic2-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        .involve-card .ic2-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        .involve-card .ic2-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            color: var(--gold);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: background 0.2s, color 0.2s;
+        }
+        .involve-card:hover .ic2-btn {
+            background: var(--gold);
+            color: #000;
+        }
+
+        /* ── SCHEDULE ── */
+        #schedule { background: var(--bg2); }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+            font-size: 0.9rem;
+        }
+        .schedule-table th {
+            background: var(--navy);
+            color: var(--gold-lt);
+            padding: 12px 16px;
+            text-align: left;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        .schedule-table td {
+            padding: 13px 16px;
+            border-bottom: 1px solid #222;
+            color: #ccc;
+            vertical-align: top;
+        }
+        .schedule-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .schedule-table .event-date {
+            color: var(--gold);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .schedule-table .event-name {
+            color: var(--white);
+            font-weight: 600;
+        }
+        .placeholder-note {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-style: italic;
+            margin-top: 16px;
+        }
+
+        /* ── SPONSORS ── */
+        #sponsors { background: var(--bg); }
+
+        .sponsor-placeholder {
+            margin-top: 32px;
+            border: 2px dashed #333;
+            border-radius: 10px;
+            padding: 48px 24px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ── VVMF BANNER ── */
+        #vvmf-banner {
+            background: var(--navy);
+            border-top: 1px solid rgba(201,168,76,0.2);
+            border-bottom: 1px solid rgba(201,168,76,0.2);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        #vvmf-banner p {
+            font-size: 0.9rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto 16px;
+            line-height: 1.7;
+        }
+        #vvmf-banner a {
+            display: inline-block;
+            padding: 10px 28px;
+            background: var(--gold);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        #vvmf-banner a:hover { background: var(--gold-lt); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #080808;
+            border-top: 1px solid #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer-inner { max-width: 800px; margin: 0 auto; }
+        .footer-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+        .footer-sub {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .footer-links a {
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-copy {
+            font-size: 0.72rem;
+            color: #444;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav { padding: 0 16px; }
+            .nav-links { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .cta-circles { gap: 20px; }
+            .cta-circle .circle { width: 90px; height: 90px; font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- UNDER CONSTRUCTION BANNER -->
+<div id="ucBanner" style="position:fixed; top:0; left:0; right:0; z-index:2000; background:#1a1a1a; border-bottom:2px solid #c9a84c; padding:9px 20px; display:flex; align-items:center; justify-content:center; gap:12px; font-family:'Raleway',sans-serif;">
+    <span style="font-size:1rem;">🚧</span>
+    <span style="font-size:0.8rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#c9a84c;">Under Construction</span>
+    <span style="font-size:0.78rem; color:#888; font-weight:400;">— Site in development by</span>
+    <span style="font-size:0.8rem; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#f5f0e8;">Anvil Arts</span>
+    <span style="font-size:1rem;">🚧</span>
+    <button onclick="document.getElementById('ucBanner').style.display='none'" style="position:absolute; right:16px; background:none; border:none; color:#555; font-size:1.1rem; cursor:pointer; line-height:1; padding:0 4px;" title="Dismiss">×</button>
+</div>
+
+<!-- NAV -->
+<nav style="top:40px;">
+    <div class="nav-brand">
+        <span class="brand-title">The Wall That Heals</span>
+        <span class="brand-sub">Putnam, CT &nbsp;·&nbsp; Sept 10–13, 2026</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#event-info">Visit</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#get-involved">Get Involved</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate" class="nav-donate">Donate</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-eyebrow">Vietnam Veterans Memorial Replica &amp; Mobile Education Center</div>
+        <h1 class="hero-title">The Wall<br><span>That Heals</span></h1>
+        <div class="hero-location">Putnam, Connecticut</div>
+        <div class="hero-dates">September 10 – 13, 2026 &nbsp;·&nbsp; Murphy Park</div>
+        <div class="countdown" id="countdown">
+            <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-label">Days</div></div>
+            <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-label">Hours</div></div>
+            <div class="cd-unit"><div class="cd-num" id="cd-minutes">—</div><div class="cd-label">Minutes</div></div>
+            <div class="cd-unit"><div class="cd-num" id="cd-seconds">—</div><div class="cd-label">Seconds</div></div>
+        </div>
+        <div class="hero-badges">
+            <span class="hero-badge">Free Event</span>
+            <span class="hero-badge">Open 24 Hours</span>
+            <span class="hero-badge">All Are Welcome</span>
+        </div>
+    </div>
+</section>
+
+<!-- CTA CIRCLES -->
+<div id="cta-row">
+    <div class="cta-circles">
+        <a href="#donate" class="cta-circle">
+            <div class="circle circle-donate">💰</div>
+            <span class="circle-label">Donate</span>
+        </a>
+        <a href="#schedule" class="cta-circle">
+            <div class="circle circle-events">📅</div>
+            <span class="circle-label">Events</span>
+        </a>
+        <a href="#get-involved" class="cta-circle">
+            <div class="circle circle-tours">🚌</div>
+            <span class="circle-label">Tours</span>
+        </a>
+        <a href="#get-involved" class="cta-circle">
+            <div class="circle circle-volunteer">🤝</div>
+            <span class="circle-label">Volunteer</span>
+        </a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div>
+                <div class="section-label">About the Exhibition</div>
+                <h2 class="section-title">Bringing the Wall<br>to Our Community</h2>
+                <div class="gold-rule"></div>
+                <p class="body-text">
+                    The Wall That Heals is a ¾-scale replica of the Vietnam Veterans Memorial in Washington, D.C., along with a Mobile Education Center. It honors the more than 3 million Americans who served in the U.S. Armed Forces during the Vietnam War, and the 58,281 men and women whose names are engraved on the Wall.
+                </p>
+                <br>
+                <p class="body-text">
+                    The traveling exhibit visits communities across America, giving all who cannot make the journey to Washington the opportunity to experience the Wall and its profound impact. The exhibit is free and open to the public 24 hours a day.
+                </p>
+                <br>
+                <p class="body-text">
+                    This fall, <strong style="color:var(--white);">Putnam, Connecticut</strong> is proud to host The Wall That Heals at Murphy Park — September 10–13, 2026.
+                </p>
+            </div>
+            <div>
+                <div class="about-video">
+                    <iframe src="https://www.youtube.com/embed/Qgz1q-D69WA?start=55"
+                        title="The Wall That Heals"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EVENT INFO -->
+<section id="event-info">
+    <div class="section-inner">
+        <div class="section-label">Visit the Wall</div>
+        <h2 class="section-title">Event Details</h2>
+        <div class="gold-rule"></div>
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="ic-icon">📍</div>
+                <div class="ic-label">Location</div>
+                <div class="ic-value">Murphy Park</div>
+                <div class="ic-sub">Putnam, Connecticut</div>
+            </div>
+            <div class="info-card">
+                <div class="ic-icon">📅</div>
+                <div class="ic-label">Dates</div>
+                <div class="ic-value">September 10–13</div>
+                <div class="ic-sub">2026</div>
+            </div>
+            <div class="info-card">
+                <div class="ic-icon">🕐</div>
+                <div class="ic-label">Hours</div>
+                <div class="ic-value">Open 24 Hours</div>
+                <div class="ic-sub">Closes Sunday at 2:00 PM</div>
+            </div>
+            <div class="info-card">
+                <div class="ic-icon">🎫</div>
+                <div class="ic-label">Admission</div>
+                <div class="ic-value">Free to the Public</div>
+                <div class="ic-sub">All are welcome</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+    <div class="section-inner">
+        <div class="section-label">What's Happening</div>
+        <h2 class="section-title">Event Schedule</h2>
+        <div class="gold-rule"></div>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Date &amp; Time</th>
+                    <th>Event</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="event-date">Thu, Sept 10</td>
+                    <td class="event-name">Opening Ceremony</td>
+                    <td>Time TBD — Murphy Park</td>
+                </tr>
+                <tr>
+                    <td class="event-date">Thu–Sun</td>
+                    <td class="event-name">Wall Open to Public</td>
+                    <td>Open 24 hours a day — free admission</td>
+                </tr>
+                <tr>
+                    <td class="event-date">TBD</td>
+                    <td class="event-name">Candlelight Vigil</td>
+                    <td>Details coming soon</td>
+                </tr>
+                <tr>
+                    <td class="event-date">TBD</td>
+                    <td class="event-name">Name Readings</td>
+                    <td>Details coming soon</td>
+                </tr>
+                <tr>
+                    <td class="event-date">TBD</td>
+                    <td class="event-name">Mobile Education Center Tours</td>
+                    <td>Group tours available — registration required</td>
+                </tr>
+                <tr>
+                    <td class="event-date">Sun, Sept 13</td>
+                    <td class="event-name">Closing Ceremony</td>
+                    <td>Wall closes at 2:00 PM</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="placeholder-note">* Full schedule details will be posted as the event approaches. Check back for updates.</p>
+    </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="get-involved">
+    <div class="section-inner">
+        <div class="section-label">Take Part</div>
+        <h2 class="section-title">Get Involved</h2>
+        <div class="gold-rule"></div>
+        <div class="involve-grid">
+            <a href="#contact" class="involve-card">
+                <div class="ic2-icon">🙋</div>
+                <div class="ic2-title">Volunteer</div>
+                <div class="ic2-desc">We are looking for volunteers to help with setup, visitor assistance, and breakdown. Join us in honoring those who served.</div>
+                <span class="ic2-btn">Sign Up</span>
+            </a>
+            <a href="#contact" class="involve-card">
+                <div class="ic2-icon">🏢</div>
+                <div class="ic2-title">Sponsor</div>
+                <div class="ic2-desc">Your business can help make this event possible. Learn about sponsorship opportunities and how to get involved.</div>
+                <span class="ic2-btn">Learn More</span>
+            </a>
+            <a href="#schedule" class="involve-card">
+                <div class="ic2-icon">📋</div>
+                <div class="ic2-title">Events</div>
+                <div class="ic2-desc">From the opening ceremony to candlelight vigils and name readings — see everything happening during the four-day exhibit.</div>
+                <span class="ic2-btn">View Schedule</span>
+            </a>
+            <a href="#contact" class="involve-card">
+                <div class="ic2-icon">🚌</div>
+                <div class="ic2-title">Schedule a Tour</div>
+                <div class="ic2-desc">Group tours of the Mobile Education Center are available but must be scheduled in advance. Register your group today.</div>
+                <span class="ic2-btn">Register</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+    <div class="section-inner">
+        <div class="section-label">Thank You</div>
+        <h2 class="section-title">Our Sponsors</h2>
+        <div class="gold-rule"></div>
+        <p class="body-text">This event is made possible through the generous support of our community sponsors. Interested in sponsoring? <a href="#contact" style="color:var(--gold);">Contact us.</a></p>
+        <div class="sponsor-placeholder">
+            Sponsor logos coming soon
+        </div>
+    </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate" style="background:var(--bg2); text-align:center;">
+    <div class="section-inner">
+        <div class="section-label">Support the Mission</div>
+        <h2 class="section-title">Make a Donation</h2>
+        <div class="gold-rule" style="margin:0 auto 28px;"></div>
+        <p class="body-text" style="margin:0 auto 32px;">
+            Your donation helps bring this powerful tribute to communities across America and supports the ongoing mission of the Vietnam Veterans Memorial Fund. Every contribution makes a difference.
+        </p>
+        <a href="https://www.vvmf.org/The-Wall-That-Heals/" target="_blank" rel="noopener"
+            style="display:inline-block; background:var(--gold); color:#000; font-weight:800; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase; padding:14px 40px; border-radius:6px; text-decoration:none; transition:background 0.2s;">
+            Donate via VVMF
+        </a>
+    </div>
+</section>
+
+<!-- VVMF BANNER -->
+<div id="vvmf-banner">
+    <p>The Wall That Heals is a program of the <strong style="color:var(--white);">Vietnam Veterans Memorial Fund</strong> — the nonprofit organization that built the Memorial and continues to honor and educate about the Vietnam War.</p>
+    <a href="https://www.vvmf.org/The-Wall-That-Heals/" target="_blank" rel="noopener">Learn More at VVMF.org ↗</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-inner">
+        <div class="section-label">Reach Out</div>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="gold-rule"></div>
+        <p class="body-text">
+            For volunteer sign-ups, sponsorship inquiries, group tour scheduling, or general questions about the event, please reach out to the organizing committee.
+        </p>
+        <br>
+        <p class="body-text" style="color:var(--muted); font-style:italic;">
+            Contact information coming soon.
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-title">The Wall That Heals — Putnam, CT</div>
+        <div class="footer-sub">Murphy Park &nbsp;·&nbsp; September 10–13, 2026</div>
+        <div class="footer-links">
+            <a href="https://www.vvmf.org/The-Wall-That-Heals/" target="_blank" rel="noopener">VVMF Official Site</a>
+            <a href="https://putnamvfw.org" target="_blank" rel="noopener">Putnam VFW</a>
+            <a href="#about">About</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#get-involved">Get Involved</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 The Wall That Heals — Putnam, CT. Built by Anvil Arts.</div>
+    </div>
+</footer>
+
+<script>
+    // Countdown to September 10, 2026 at 12:00 AM
+    const target = new Date('2026-09-10T00:00:00').getTime();
+
+    function updateCountdown() {
+        const now  = Date.now();
+        const diff = target - now;
+
+        if (diff <= 0) {
+            document.getElementById('cd-days').textContent    = '0';
+            document.getElementById('cd-hours').textContent   = '0';
+            document.getElementById('cd-minutes').textContent = '0';
+            document.getElementById('cd-seconds').textContent = '0';
+            return;
+        }
+
+        const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').textContent    = days;
+        document.getElementById('cd-hours').textContent   = String(hours).padStart(2,'0');
+        document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
+        document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
