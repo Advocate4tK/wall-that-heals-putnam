@@ -575,16 +575,22 @@
 <body>
 
 <!-- UNDER CONSTRUCTION BANNER -->
-<div id="ucBanner" style="position:fixed; top:0; left:0; right:0; z-index:2000; background:#1a1a1a; border-bottom:3px solid #c9a84c; padding:14px 20px; display:flex; align-items:center; justify-content:center; gap:16px; font-family:'Raleway',sans-serif;">
+<div id="ucBanner" style="position:fixed; top:0; left:0; right:0; z-index:2000; background:#1a1a1a; border-bottom:3px solid #c9a84c; padding:14px 20px; display:flex; align-items:center; justify-content:center; gap:16px; font-family:'Raleway',sans-serif; transition: transform 0.8s ease, opacity 0.8s ease;">
     <span style="font-size:1rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#c9a84c;">Under Construction</span>
     <span style="font-size:0.9rem; color:#888; font-weight:400;">— Site in development by</span>
     <a href="mailto:tod@anvil-arts.com" style="font-size:1rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#f5f0e8; text-decoration:none;">Anvil Arts</a>
     <img src="PICS/anvil.png" height="44" style="flex-shrink:0; opacity:0.9; transform:scaleX(-1);">
-    <button onclick="document.getElementById('ucBanner').style.display='none'" style="position:absolute; right:16px; background:none; border:none; color:#555; font-size:1.3rem; cursor:pointer; line-height:1; padding:0 4px;" title="Dismiss">×</button>
+</div>
+
+<!-- Persistent anvil badge (shown after banner dismisses) -->
+<div id="anvilBadge" style="position:fixed; top:8px; right:16px; z-index:2001; opacity:0; transition:opacity 0.6s ease; pointer-events:none;">
+    <a href="mailto:tod@anvil-arts.com" style="display:block;" title="Built by Anvil Arts">
+        <img src="PICS/anvil.png" height="36" style="opacity:0.7; transform:scaleX(-1);">
+    </a>
 </div>
 
 <!-- NAV -->
-<nav style="top:40px;">
+<nav style="top:60px;">
     <div class="nav-brand">
         <span class="brand-title">The Wall That Heals</span>
         <span class="brand-sub">Putnam, CT &nbsp;·&nbsp; Sept 10–13, 2026</span>
@@ -964,6 +970,21 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // Banner: slide up and fade after 4s, then reveal anvil badge
+    setTimeout(() => {
+        const banner = document.getElementById('ucBanner');
+        const badge  = document.getElementById('anvilBadge');
+        banner.style.transform = 'translateY(-100%)';
+        banner.style.opacity   = '0';
+        setTimeout(() => {
+            banner.style.display = 'none';
+            badge.style.opacity  = '1';
+            badge.style.pointerEvents = 'auto';
+            // Slide nav back to top
+            document.querySelector('nav').style.top = '0';
+        }, 850);
+    }, 4000);
 </script>
 
 </body>
