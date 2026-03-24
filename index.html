@@ -570,6 +570,13 @@
             .cta-circles { gap: 20px; }
             .cta-circle .circle { width: 90px; height: 90px; font-size: 1.7rem; }
         }
+    @keyframes anvilGlow {
+        0%   { opacity: 0;   filter: drop-shadow(0 0 0px #c9a84c); }
+        30%  { opacity: 1;   filter: drop-shadow(0 0 8px #c9a84c); }
+        55%  { opacity: 1;   filter: drop-shadow(0 0 28px #c9a84c) drop-shadow(0 0 56px #e8c96d); }
+        75%  { opacity: 1;   filter: drop-shadow(0 0 10px #c9a84c); }
+        100% { opacity: 0;   filter: drop-shadow(0 0 0px #c9a84c); }
+    }
     </style>
 </head>
 <body>
@@ -583,9 +590,9 @@
 </div>
 
 <!-- Persistent anvil badge top right (shown after banner dismisses) -->
-<div id="anvilBadge" style="position:fixed; top:8px; right:16px; z-index:2001; opacity:0; transition:opacity 4s ease; pointer-events:none;">
+<div id="anvilBadge" style="position:fixed; top:8px; right:16px; z-index:2001; opacity:0; pointer-events:none;">
     <a href="mailto:tod@anvil-arts.com" style="display:block;" title="Built by Anvil Arts">
-        <img src="PICS/anvil.png" height="36" style="opacity:0.7; transform:scaleX(-1);">
+        <img src="PICS/anvil.png" height="36" style="transform:scaleX(-1);">
     </a>
 </div>
 
@@ -986,9 +993,12 @@
         banner.style.opacity   = '0';
         setTimeout(() => {
             banner.style.display = 'none';
-            badge.style.opacity  = '1';
-            badge.style.pointerEvents = 'auto';
             document.querySelector('nav').style.top = '0';
+            badge.style.animation = 'anvilGlow 9s ease forwards';
+            badge.style.pointerEvents = 'auto';
+            setTimeout(() => {
+                badge.style.display = 'none';
+            }, 9100);
         }, 3100);
     }, 8000);
 </script>
